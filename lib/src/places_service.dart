@@ -32,7 +32,7 @@ class PlacesService {
   /// Gets auto complete results from the GoogleMapsApi
   ///
   /// Returns List of [PlacesAutoCompleteResult] or a [String] for a friendly error message
-  Future<List<PlacesAutoCompleteResult>> getAutoComplete(String input) async {
+  Future<List<PlacesAutoCompleteResult>> getAutoComplete(String input, {List<String>? types,String? region}) async {
     if (_sessionToken == null || _resetSessionTokenForNextAutoComplete) {
       // Set reset back to false. We only want a new session when the user has selected`
       // a place. Which for us means getPlaceDetails has been called.
@@ -44,7 +44,10 @@ class PlacesService {
 
     return _runPlacesRequest<List<PlacesAutoCompleteResult>,
         PlacesAutocompleteResponse>(
-      placesRequest: _places!.autocomplete(input, sessionToken: _sessionToken),
+      placesRequest: _places!.autocomplete(input, 
+      sessionToken: _sessionToken, 
+      types: types ?? [],
+      region: region),
       serialiseResponse: (autoCompleteResults) {
         final results = autoCompleteResults.predictions.where((prediction) {
           final address =
