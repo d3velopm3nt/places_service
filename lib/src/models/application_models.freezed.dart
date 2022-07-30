@@ -21,7 +21,9 @@ class _$PlacesDetailsTearOff {
   const _$PlacesDetailsTearOff();
 
   _PlacesDetails call(
-      {String? placeId,
+      {
+      PlaceDetails? details,
+      String? placeId,
       String? streetNumber,
       String? streetShort,
       String? streetLong,
@@ -32,6 +34,7 @@ class _$PlacesDetailsTearOff {
       double? lat,
       double? lng}) {
     return _PlacesDetails(
+      details: details,
       placeId: placeId,
       streetNumber: streetNumber,
       streetShort: streetShort,
@@ -55,6 +58,7 @@ const $PlacesDetails = _$PlacesDetailsTearOff();
 
 /// @nodoc
 mixin _$PlacesDetails {
+  PlaceDetails? get details => throw _privateConstructorUsedError;
   String? get placeId => throw _privateConstructorUsedError;
   String? get streetNumber => throw _privateConstructorUsedError;
   String? get streetShort => throw _privateConstructorUsedError;
@@ -78,7 +82,9 @@ abstract class $PlacesDetailsCopyWith<$Res> {
           PlacesDetails value, $Res Function(PlacesDetails) then) =
       _$PlacesDetailsCopyWithImpl<$Res>;
   $Res call(
-      {String? placeId,
+      {
+      PlaceDetails? details,
+      String? placeId,
       String? streetNumber,
       String? streetShort,
       String? streetLong,
@@ -101,6 +107,7 @@ class _$PlacesDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? details = freezed,
     Object? placeId = freezed,
     Object? streetNumber = freezed,
     Object? streetShort = freezed,
@@ -113,6 +120,7 @@ class _$PlacesDetailsCopyWithImpl<$Res>
     Object? lng = freezed,
   }) {
     return _then(_value.copyWith(
+      details: details == freezed ? _value.details : details as PlaceDetails,
       placeId: placeId == freezed
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -165,7 +173,9 @@ abstract class _$PlacesDetailsCopyWith<$Res>
       __$PlacesDetailsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? placeId,
+      {
+      PlaceDetails? details,  
+      String? placeId,
       String? streetNumber,
       String? streetShort,
       String? streetLong,
@@ -190,6 +200,7 @@ class __$PlacesDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? details = freezed,
     Object? placeId = freezed,
     Object? streetNumber = freezed,
     Object? streetShort = freezed,
@@ -202,6 +213,7 @@ class __$PlacesDetailsCopyWithImpl<$Res>
     Object? lng = freezed,
   }) {
     return _then(_PlacesDetails(
+      details: details == freezed ? _value.details : details as PlaceDetails,
       placeId: placeId == freezed
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -250,7 +262,8 @@ class __$PlacesDetailsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PlacesDetails implements _PlacesDetails {
   _$_PlacesDetails(
-      {this.placeId,
+      {this.details,
+      this.placeId,
       this.streetNumber,
       this.streetShort,
       this.streetLong,
@@ -264,6 +277,8 @@ class _$_PlacesDetails implements _PlacesDetails {
   factory _$_PlacesDetails.fromJson(Map<String, dynamic> json) =>
       _$_$_PlacesDetailsFromJson(json);
 
+  @override
+  final PlaceDetails? details;
   @override
   final String? placeId;
   @override
@@ -287,7 +302,7 @@ class _$_PlacesDetails implements _PlacesDetails {
 
   @override
   String toString() {
-    return 'PlacesDetails(placeId: $placeId, streetNumber: $streetNumber, streetShort: $streetShort, streetLong: $streetLong, state: $state, zip: $zip, city: $city, searchString: $searchString, lat: $lat, lng: $lng)';
+    return 'PlacesDetails(details:$details, placeId: $placeId, streetNumber: $streetNumber, streetShort: $streetShort, streetLong: $streetLong, state: $state, zip: $zip, city: $city, searchString: $searchString, lat: $lat, lng: $lng)';
   }
 
   @override
@@ -324,6 +339,7 @@ class _$_PlacesDetails implements _PlacesDetails {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(details) ^
       const DeepCollectionEquality().hash(placeId) ^
       const DeepCollectionEquality().hash(streetNumber) ^
       const DeepCollectionEquality().hash(streetShort) ^
@@ -348,7 +364,8 @@ class _$_PlacesDetails implements _PlacesDetails {
 
 abstract class _PlacesDetails implements PlacesDetails {
   factory _PlacesDetails(
-      {String? placeId,
+      { PlaceDetails? details,
+        String? placeId,
       String? streetNumber,
       String? streetShort,
       String? streetLong,
@@ -361,7 +378,8 @@ abstract class _PlacesDetails implements PlacesDetails {
 
   factory _PlacesDetails.fromJson(Map<String, dynamic> json) =
       _$_PlacesDetails.fromJson;
-
+@override
+  PlaceDetails? get details => throw _privateConstructorUsedError;
   @override
   String? get placeId => throw _privateConstructorUsedError;
   @override

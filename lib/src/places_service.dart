@@ -84,6 +84,7 @@ class PlacesService {
             _getShortNameFromComponent(details, 'administrative_area_level_1');
 
         return PlacesDetails(
+          details: details,
           placeId: placeId,
           streetNumber: streetNumber,
           streetShort: streetShort,

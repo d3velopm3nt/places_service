@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_webservice/places.dart';
 
 part 'application_models.freezed.dart';
 part 'application_models.g.dart';
@@ -6,6 +7,7 @@ part 'application_models.g.dart';
 @freezed
 class PlacesDetails with _$PlacesDetails {
   factory PlacesDetails({
+    PlaceDetails? details,
     String? placeId,
     String? streetNumber,
     String? streetShort,
